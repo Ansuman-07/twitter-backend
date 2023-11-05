@@ -7,12 +7,13 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://twitter_admin:XkV80JAqGQBEEkrB@cluster0.bpb775a.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://dynamo1444f:ansuman1444f@ansumancluster.u2kvfle.mongodb.net/twitter-clone?retryWrites=true&w=majority&appName=AtlasApp`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
     try {
         await client.connect();
+        console.log("Connected to MongoDB");
         const postCollection = client.db("database").collection("posts"); // this collection is for team-ekt
         const userCollection = client.db("database").collection("users"); // this collection is for team-srv
 
